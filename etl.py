@@ -72,13 +72,6 @@ def process_songplay(cur, filepath):
             songid, artistid = results
         else:
             songid, artistid = None, None
-        
-        cur.execute(time_select, row.ts)
-        time1 = cur.fetchone()  
-        if(time1>1):
-            print("Suck")
-        else:
-            continue
 
         # insert songplay record
         songplay_data = [row.userId,row.ts,songid,artistid,
